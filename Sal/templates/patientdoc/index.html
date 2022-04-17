@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+     <!-- Compiled and minified CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+     <!-- Compiled and minified JavaScript -->
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+    
+
+    {%for message in messages%}
+    <h2>{{message}}</h2>
+    {%endfor%}
+
+    {%if user.is_authenticated%}
+    <h3>Welcome, {{fname}}</h3>
+    <table>
+        <thead>
+          <tr>
+              <th>Username</th>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Email ID</th>
+              <th>Type</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>{{username}}</td>
+            <td>{{fname}}</td>
+            <td>{{lname}}</td>
+            <td>{{email}}</td>
+            <td>{{users}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <a class="waves-effect waves-light btn" href="signout">Sign Out</a>
+
+    {%else%}
+    <h3>Welcome</h3>
+    <br>
+
+    <a class="waves-effect waves-light btn"  href="signup">Signup</a>&nbsp;&nbsp;
+    <a class="waves-effect waves-light btn"  href="signin">SignIn</a>&nbsp;&nbsp;
+    {%endif%}
+    </div>
+</body>
+</html>
